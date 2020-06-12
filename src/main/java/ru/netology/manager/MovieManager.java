@@ -1,12 +1,22 @@
 package ru.netology.manager;
 
-import lombok.Data;
+
+import lombok.NoArgsConstructor;
 import ru.netology.domain.Movie;
 
-@Data
+@NoArgsConstructor
 public class MovieManager {
     private Movie[] movies = new Movie[0];
-    private int count;
+    private int defaultOutput = 10;
+    private int posterSize;
+
+    public void setPosterSize(int posterSize) {
+        this.posterSize = posterSize;
+    }
+
+    public MovieManager(int posterSize) {
+        this.posterSize = posterSize;
+    }
 
     public void addMovie(Movie movie) {
         int length = movies.length + 1;
@@ -21,22 +31,22 @@ public class MovieManager {
 
     public Movie[] getAll() {
         Movie[] result = new Movie[0];
-        if (count == 0 & movies.length < 11) {
+        if (posterSize == 0 & movies.length <= defaultOutput) {
             result = new Movie[movies.length];
             for (int i = 0; i < result.length; i++) {
                 int index = movies.length - i - 1;
                 result[i] = movies[index];
             }
         }
-        if (count == 0 & movies.length >= 11) {
+        if (posterSize == 0 & movies.length >= defaultOutput++) {
             result = new Movie[10];
             for (int i = 0; i < result.length; i++) {
                 int index = movies.length - i - 1;
                 result[i] = movies[index];
             }
         }
-        if (count != 0) {
-            result = new Movie[count];
+        if (posterSize != 0) {
+            result = new Movie[posterSize];
             for (int i = 0; i < result.length; i++) {
                 int index = movies.length - i - 1;
                 result[i] = movies[index];

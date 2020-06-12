@@ -98,7 +98,8 @@ MovieManager movieManager = new MovieManager();
 
     @Test
     void showSpecificNumberFilms() {
-        movieManager.setCount(5);
+//        movieManager.setPosterSize(5);
+        MovieManager posterSize = new MovieManager(5);
         Movie one = new Movie(1, "Бладшот", "Боевик", "https://", "https://");
         Movie two = new Movie(2, "Вперёд", "Мультфильм", "https://", "https://");
         Movie three = new Movie(3, "Отель Белград", "комедия", "https://", "https://");
