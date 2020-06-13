@@ -98,21 +98,19 @@ class AfishaManagerTest {
         verify(repository).findAll();
     }
 
-//    @Test
-//    void shouldRemoveAll() {
-//        Movie[] returned = new Movie[0];
-//        doReturn(returned).when(repository).findAll();
-//        doNothing().when(repository).removeAll();
-//
-//
-//        afishaManager.removeAll();
-//
-//        Movie[] actual = afishaManager.getAll();
-//        Movie[] expected = new Movie[0];
-//
-//        assertArrayEquals(expected, actual);
-//        verify(repository).removeAll();
-//    }
+    @Test
+    void shouldRemoveAll() {
+        Movie[] returned = new Movie[0];
+        doReturn(returned).when(repository).findAll();
+        afishaManager.removeAll();
+
+        Movie[] actual = afishaManager.getAll();
+        Movie[] expected = new Movie[0];
+
+        assertArrayEquals(expected, actual);
+        verify(repository).removeAll();
+        verify(repository).findAll();
+    }
 
     @Test
     void shouldFindById() {
