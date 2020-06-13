@@ -13,13 +13,13 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class MovieManagerTest {
+class AfishaManagerTest {
 
     @Mock
     AfishaRepository repository;
 
     @InjectMocks
-    MovieManager movieManager;
+    AfishaManager afishaManager;
 
     Movie one = new Movie(1, "Бладшот", "Боевик", "https://", "https://");
     Movie two = new Movie(2, "Вперёд", "Мультфильм", "https://", "https://");
@@ -40,7 +40,7 @@ class MovieManagerTest {
         doReturn(returned).when(repository).findAll();
 
         Movie[] expected = new Movie [0];
-        Movie[] actual = movieManager.getAll();
+        Movie[] actual = afishaManager.getAll();
 
         assertArrayEquals(expected, actual);
         verify(repository).findAll();
@@ -51,9 +51,9 @@ class MovieManagerTest {
         Movie[] returned = new Movie[]{one};
         doReturn(returned).when(repository).findAll();
 
-        movieManager.add(one);
+        afishaManager.add(one);
         Movie[] expected = new Movie[]{one};
-        Movie[] actual = movieManager.getAll();
+        Movie[] actual = afishaManager.getAll();
 
         assertArrayEquals(expected, actual);
         verify(repository).save(any());
@@ -65,7 +65,7 @@ class MovieManagerTest {
         Movie[] returned = new Movie[]{one, two, three, four, five, six, seven, eight, nine, then};
         doReturn(returned).when(repository).findAll();
 
-        Movie[] actual = movieManager.getAll();
+        Movie[] actual = afishaManager.getAll();
         Movie[] expected = new Movie[]{then,nine, eight, seven, six, five, four,three,two, one};
 
         assertArrayEquals(expected, actual);
@@ -78,7 +78,7 @@ class MovieManagerTest {
         Movie[] returned = new Movie[]{one, two, three, four, five, six, seven, eight, nine, then, eleven};
         doReturn(returned).when(repository).findAll();
 
-        Movie[] actual = movieManager.getAll();
+        Movie[] actual = afishaManager.getAll();
         Movie[] expected = new Movie[]{eleven, then,nine, eight, seven, six, five, four,three,two};
 
         assertArrayEquals(expected, actual);
@@ -87,11 +87,11 @@ class MovieManagerTest {
 
     @Test
     void showSpecificNumberFilms() {
-        movieManager.setPosterSize(5);
+        afishaManager.setPosterSize(5);
         Movie[] returned = new Movie[]{one, two, three, four, five, six, seven, eight, nine, then, eleven};
         doReturn(returned).when(repository).findAll();
 
-        Movie[] actual = movieManager.getAll();
+        Movie[] actual = afishaManager.getAll();
         Movie[] expected = new Movie[]{eleven, then,nine, eight, seven};
 
         assertArrayEquals(expected, actual);
@@ -100,14 +100,14 @@ class MovieManagerTest {
 
 //    @Test
 //    void shouldRemoveAll() {
-//        Movie[] returnedFindAll = new Movie[0];
-//        doReturn(returnedFindAll).when(repository).findAll();
+//        Movie[] returned = new Movie[0];
+//        doReturn(returned).when(repository).findAll();
 //        doNothing().when(repository).removeAll();
 //
 //
-//        movieManager.removeAll(any());
+//        afishaManager.removeAll();
 //
-//        Movie[] actual = movieManager.getAll();
+//        Movie[] actual = afishaManager.getAll();
 //        Movie[] expected = new Movie[0];
 //
 //        assertArrayEquals(expected, actual);
@@ -120,7 +120,7 @@ class MovieManagerTest {
         Movie[] returned = new Movie[]{four};
         doReturn(returned).when(repository).findById(idToFind);
 
-        Movie[] actual = movieManager.findById(idToFind);
+        Movie[] actual = afishaManager.findById(idToFind);
         Movie[] expected = new Movie[]{four};
 
         assertArrayEquals(expected, actual);
@@ -133,7 +133,7 @@ class MovieManagerTest {
         Movie[] returned = new Movie[0];
         doReturn(returned).when(repository).findById(idToFind);
 
-        Movie[] actual = movieManager.findById(idToFind);
+        Movie[] actual = afishaManager.findById(idToFind);
         Movie[] expected = new Movie[0];
 
         assertArrayEquals(expected, actual);
@@ -146,9 +146,9 @@ class MovieManagerTest {
         Movie[] returned = new Movie[]{one, two, three, five};
         doReturn(returned).when(repository).findAll();
 
-        movieManager.removeById(idToRemove);
+        afishaManager.removeById(idToRemove);
 
-        Movie[] actual = movieManager.getAll();
+        Movie[] actual = afishaManager.getAll();
         Movie[] expected = new Movie[]{five, three, two, one};
 
         assertArrayEquals(expected, actual);
@@ -162,9 +162,9 @@ class MovieManagerTest {
         doReturn(returned).when(repository).findAll();
         doNothing().when(repository).removeById(idToRemove);
 
-        movieManager.removeById(idToRemove);
+        afishaManager.removeById(idToRemove);
 
-        Movie[] actual = movieManager.getAll();
+        Movie[] actual = afishaManager.getAll();
         Movie[] expected = new Movie[]{five, three, two, one};
 
         assertArrayEquals(expected, actual);
@@ -178,9 +178,9 @@ class MovieManagerTest {
         doReturn(returned).when(repository).findAll();
         doNothing().when(repository).removeById(idToRemove);
 
-        movieManager.removeById(idToRemove);
+        afishaManager.removeById(idToRemove);
 
-        Movie[] actual = movieManager.getAll();
+        Movie[] actual = afishaManager.getAll();
         Movie[] expected = new Movie[]{three, two, one};
 
         assertArrayEquals(expected, actual);

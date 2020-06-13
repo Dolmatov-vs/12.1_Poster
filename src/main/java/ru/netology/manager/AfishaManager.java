@@ -3,12 +3,12 @@ package ru.netology.manager;
 import ru.netology.domain.Movie;
 import ru.netology.repository.AfishaRepository;
 
-public class MovieManager {
+public class AfishaManager {
     private int posterSize;
     private int defaultOutput = 10;
     private AfishaRepository repository;
 
-    public MovieManager(AfishaRepository repository) {
+    public AfishaManager(AfishaRepository repository) {
         this.repository = repository;
     }
 
@@ -20,7 +20,7 @@ public class MovieManager {
         repository.save(movie);
     }
 
-    public void removeAll (Movie movie){
+    public void removeAll (){
         repository.removeAll();
     }
 
