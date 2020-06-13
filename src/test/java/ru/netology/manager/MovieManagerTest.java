@@ -98,8 +98,7 @@ MovieManager movieManager = new MovieManager();
 
     @Test
     void showSpecificNumberFilms() {
-//        movieManager.setPosterSize(5);
-        MovieManager posterSize = new MovieManager(5);
+        MovieManager manager = new MovieManager(5);
         Movie one = new Movie(1, "Бладшот", "Боевик", "https://", "https://");
         Movie two = new Movie(2, "Вперёд", "Мультфильм", "https://", "https://");
         Movie three = new Movie(3, "Отель Белград", "комедия", "https://", "https://");
@@ -112,21 +111,21 @@ MovieManager movieManager = new MovieManager();
         Movie then = new Movie(10, "Южный парк", "мультфильм", "https://", "https://");
         Movie eleven = new Movie(11, "Футурама", "мультфильм", "https://", "https://");
 
-        movieManager.addMovie(one);
-        movieManager.addMovie(two);
-        movieManager.addMovie(three);
-        movieManager.addMovie(four);
-        movieManager.addMovie(five);
-        movieManager.addMovie(six);
-        movieManager.addMovie(seven);
-        movieManager.addMovie(eight);
-        movieManager.addMovie(nine);
-        movieManager.addMovie(then);
-        movieManager.addMovie(eleven);
+        manager.addMovie(one);
+        manager.addMovie(two);
+        manager.addMovie(three);
+        manager.addMovie(four);
+        manager.addMovie(five);
+        manager.addMovie(six);
+        manager.addMovie(seven);
+        manager.addMovie(eight);
+        manager.addMovie(nine);
+        manager.addMovie(then);
+        manager.addMovie(eleven);
 
-        movieManager.getAll();
+        manager.getAll();
 
-        Movie[] actual = movieManager.getAll();
+        Movie[] actual = manager.getAll();
         Movie[] expected = new Movie[]{eleven, then,nine, eight, seven};
 
         assertArrayEquals(expected, actual);
