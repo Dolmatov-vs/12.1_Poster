@@ -1,14 +1,14 @@
 package ru.netology.manager;
 
 import ru.netology.domain.Movie;
-import ru.netology.repository.MoviesRepository;
+import ru.netology.repository.MovieRepository;
 
 public class MovieManager {
     private int posterSize;
     private int defaultOutput = 10;
-    private MoviesRepository repository;
+    private MovieRepository repository;
 
-    public MovieManager(MoviesRepository repository) {
+    public MovieManager(MovieRepository repository) {
         this.repository = repository;
     }
 
