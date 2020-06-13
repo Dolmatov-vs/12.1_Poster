@@ -2,7 +2,7 @@ package ru.netology.repository;
 
 import ru.netology.domain.Movie;
 
-public class Repository {
+public class MoviesRepository {
     private Movie[] movies = new Movie[0];
 
     public Movie[] findAll() {
@@ -43,8 +43,8 @@ public class Repository {
         movies = tmp;
     }
 
-    public Movie[] removeAll() {
-        return movies = new Movie[0];
+    public void removeAll() {
+        Movie[] movies = new Movie[0];
     }
 
 }
