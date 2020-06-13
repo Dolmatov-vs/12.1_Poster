@@ -1,15 +1,19 @@
 package ru.netology.manager;
 
 import ru.netology.domain.Movie;
-import ru.netology.repository.MovieRepository;
+import ru.netology.repository.AfishaRepository;
 
 public class MovieManager {
     private int posterSize;
     private int defaultOutput = 10;
-    private MovieRepository repository;
+    private AfishaRepository repository;
 
-    public MovieManager(MovieRepository repository) {
+    public MovieManager(AfishaRepository repository) {
         this.repository = repository;
+    }
+
+    public void setPosterSize(int posterSize) {
+        this.posterSize = posterSize;
     }
 
     public void add (Movie movie){

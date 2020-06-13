@@ -1,17 +1,16 @@
 package ru.netology.manager;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Movie;
-import ru.netology.repository.MovieRepository;
+import ru.netology.repository.AfishaRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MovieRepositoryIsNullTest {
+class AfishaRepositoryIsNullTest {
     @Test
     void MoviesNoAdd() {
-        MovieRepository repository = new MovieRepository();
+        AfishaRepository repository = new AfishaRepository();
         repository.findAll();
 
         Movie[] actual = repository.findAll();
@@ -20,8 +19,8 @@ class MovieRepositoryIsNullTest {
     }
 }
 
-class MovieRepositoryTest {
-    MovieRepository repository = new MovieRepository();
+class AfishaRepositoryTest {
+    AfishaRepository repository = new AfishaRepository();
     Movie one = new Movie(1, "Бладшот", "Боевик", "https://", "https://");
     Movie two = new Movie(2, "Вперёд", "Мультфильм", "https://", "https://");
     Movie three = new Movie(3, "Отель Белград", "комедия", "https://", "https://");
