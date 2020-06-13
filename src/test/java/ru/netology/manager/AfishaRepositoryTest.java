@@ -1,23 +1,13 @@
 package ru.netology.manager;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Movie;
 import ru.netology.repository.AfishaRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AfishaRepositoryIsNullTest {
-    @Test
-    void MoviesNoAdd() {
-        AfishaRepository repository = new AfishaRepository();
-        repository.findAll();
-
-        Movie[] actual = repository.findAll();
-        Movie[] expected = new Movie [0];
-        assertArrayEquals(expected, actual);
-    }
-}
 
 class AfishaRepositoryTest {
     AfishaRepository repository = new AfishaRepository();
@@ -26,6 +16,19 @@ class AfishaRepositoryTest {
     Movie three = new Movie(3, "Отель Белград", "комедия", "https://", "https://");
     Movie four = new Movie(4, "Джентельмены", "боевик", "https://", "https://");
     Movie five = new Movie(5, "Человек-невидимка", "ужасы", "https://", "https://");
+
+    @Nested
+    class AfishaRepositoryIsNullTest {
+        @Test
+        void MoviesNoAdd() {
+            AfishaRepository repository = new AfishaRepository();
+            repository.findAll();
+
+            Movie[] actual = repository.findAll();
+            Movie[] expected = new Movie [0];
+            assertArrayEquals(expected, actual);
+        }
+    }
 
     @BeforeEach
     public void sutUp() {
