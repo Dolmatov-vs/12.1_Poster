@@ -30,24 +30,19 @@ public class AfishaManager {
 
         if (posterSize == 0 & movies.length <= defaultOutput) {
             result = new Movie[movies.length];
-            for (int i = 0; i < result.length; i++) {
-                int index = movies.length - i - 1;
-                result[i] = movies[index];
-            }
         }
         if (posterSize == 0 & movies.length >= defaultOutput++) {
             result = new Movie[10];
-            for (int i = 0; i < result.length; i++) {
-                int index = movies.length - i - 1;
-                result[i] = movies[index];
-            }
         }
-        if (posterSize != 0) {
+        if (posterSize != 0 & movies.length >= posterSize) {
             result = new Movie[posterSize];
-            for (int i = 0; i < result.length; i++) {
-                int index = movies.length - i - 1;
-                result[i] = movies[index];
-            }
+        }
+        if (posterSize != 0 & movies.length < posterSize) {
+            result = new Movie[movies.length];
+        }
+        for (int i = 0; i < result.length; i++) {
+            int index = movies.length - i - 1;
+            result[i] = movies[index];
         }
         return result;
     }

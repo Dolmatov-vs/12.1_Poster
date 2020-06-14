@@ -88,11 +88,24 @@ class AfishaManagerTest {
     @Test
     void showSpecificNumberFilms() {
         afishaManager.setPosterSize(5);
-        Movie[] returned = new Movie[]{one, two, three, four, five, six, seven, eight, nine, then, eleven};
+        Movie[] returned = new Movie[]{one, two, three};
         doReturn(returned).when(repository).findAll();
 
         Movie[] actual = afishaManager.getAll();
-        Movie[] expected = new Movie[]{eleven, then,nine, eight, seven};
+        Movie[] expected = new Movie[]{three, two, one};
+
+        assertArrayEquals(expected, actual);
+        verify(repository).findAll();
+    }
+
+    @Test
+    void showPosterSizeMoreLowArray() {
+        afishaManager.setPosterSize(3);
+        Movie[] returned = new Movie[]{one, two, three, four, five, six};
+        doReturn(returned).when(repository).findAll();
+
+        Movie[] actual = afishaManager.getAll();
+        Movie[] expected = new Movie[]{six, five, four};
 
         assertArrayEquals(expected, actual);
         verify(repository).findAll();
